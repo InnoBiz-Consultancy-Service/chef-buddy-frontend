@@ -111,7 +111,7 @@ const BookChef: React.FC = () => {
             <div className="flex justify-center">
               <button 
                 type="submit"
-                className="w-full md:max-w-xs bg-[#e67e22] hover:bg-[#d35400] text-white font-medium py-3 rounded-xl transition-all shadow-lg uppercase tracking-widest text-sm active:scale-95"
+                className="w-full md:max-w-xs bg-[#e67e22] hover:bg-[#d35400] text-white font-medium py-3 rounded-xl transition-all shadow-lg uppercase tracking-widest text-sm active:scale-95 cursor-pointer"
               >
                 Submit Message
               </button>

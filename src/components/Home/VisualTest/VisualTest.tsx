@@ -27,24 +27,24 @@ import img12 from "../../../assets/12.png";
 const ChefGallery: React.FC = () => {
  
   const images: GalleryImage[] = [
-    { id: 1, src: img1, span: 'col-span-12 md:col-span-3 h-[250px] md:h-[261px]' },
-    { id: 2, src: img2, span: 'col-span-12 md:col-span-3 h-[300px] md:h-[314px]' },
-    { id: 3, src: img3, span: 'col-span-12 md:col-span-4 h-[250px] md:h-[300px]' },
+    { id: 1, src: img1, span: 'col-span-12 md:col-span-3 w-full lg:w-[342px] h-[250px] md:h-[261px]' },
+    { id: 2, src: img2, span: 'col-span-12 md:col-span-3 w-full lg:w-[342px] h-[300px] md:h-[314px]' },
+    { id: 3, src: img3, span: 'col-span-12 md:col-span-4 w-full lg:w-[462px]  h-[250px] md:h-[300px]' },
     // ৪ নম্বর ইমেজে 'object-top' যোগ করা হয়েছে যাতে মাথা না কাটে
-    { id: 4, src: img4, span: 'col-span-12 md:col-span-2 h-[340px] md:h-[343px]', objectPos: 'object-top' },
+    { id: 4, src: img4, span: 'col-span-12 md:col-span-2 w-full lg:w-[342px] h-[340px] md:h-[343px]', objectPos: 'object-top' },
     { id: 5, src: img5, span: 'col-span-12 md:col-span-3 h-[220px] md:h-[222px] md:-mt-15' },
     { id: 6, src: img6, span: 'col-span-12 md:col-span-3 h-[350px] md:h-[364px] md:-mt-2' }, 
-    { id: 7, src: img7, span: 'col-span-12 md:col-span-4 h-[300px] md:h-[309px] md:-mt-10' },
-    { id: 8, src: img8, span: 'col-span-12 md:col-span-2 h-[220px] md:h-[227px] md:mt-5' },
+    { id: 7, src: img7, span: 'col-span-12 md:col-span-4 w-full lg:w-[462px] h-[300px] md:h-[309px] md:-mt-10' },
+    { id: 8, src: img8, span: 'col-span-12 md:col-span-2 h-[220px] md:h-[227px] w-full lg:w-[342px] md:mt-5' },
     { id: 9, src: img9, span: 'col-span-12 md:col-span-3 h-[350px] md:h-[379px] md:-mt-38' },
     { id: 10, src: img10, span: 'col-span-12 md:col-span-3 h-[180px] md:h-[186px] md:mt-10' },
-    { id: 11, src: img11, span: 'col-span-12 md:col-span-4 h-[280px] md:h-[293px] md:-mt-16' },
-    { id: 12, src: img12, span: 'col-span-12 md:col-span-2 h-[280px] md:h-[293px] md:-mt-16' },
+    { id: 11, src: img11, span: 'col-span-12 md:col-span-4 w-full lg:w-[462px] h-[280px] md:h-[293px] md:-mt-16' },
+    { id: 12, src: img12, span: 'col-span-12 md:col-span-2 h-[280px] md:h-[293px] w-full lg:w-[342px] md:-mt-16' },
   ];
 
   return (
-    <section className="py-10 md:py-16 bg-white overflow-hidden">
-      <div className="max-w-[1500px] mx-auto px-4">
+    <section className="py-10  md:py-24 bg-white overflow-hidden">
+      <div className="max-w-[1440px] mx-auto px-4">
         
         <div className="text-center mb-10 md:mb-12">
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4 px-2">
