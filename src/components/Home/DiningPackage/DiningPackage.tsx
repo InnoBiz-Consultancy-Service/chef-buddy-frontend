@@ -50,6 +50,14 @@ const packages = [
 ];
 
 export default function DiningPackage() {
+
+  const scrollToContact = (e: React.MouseEvent)=>{
+    e.preventDefault();
+    const element = document.getElementById('book-chef');
+    if(element){
+      element.scrollIntoView({behavior:'smooth'})
+    }
+  }
   return (
     <section className="relative py-24 px-4 w-full min-h-screen flex flex-col items-center overflow-hidden">
       {/* Background Image with Overlay */}
@@ -106,6 +114,7 @@ export default function DiningPackage() {
 
             {/* Action Button - Size and Radius updated per requirements */}
             <button
+            onClick={scrollToContact}
               style={{
                 width: '100%', // Flexible within container up to 375px max via container constraints
                 maxWidth: '375px',

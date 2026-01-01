@@ -2,28 +2,28 @@
 
 import Image from "next/image";
 import { useState } from "react";
-
+import avatar from "../../../assets/images/testimonial1.jpg";
 // Mock Data
 const testimonials = [
   {
     id: 1,
     content: "The flavors were rich and authentic without feeling heavy or oily. It's rare to find such quality and flexibility together",
     author: "John D, 27",
-    avatar: "/path-to-avatar.jpg", // John-er chobi ekhane hobe
+    avatar: avatar, 
     rating: 5,
   },
   {
     id: 2,
     content: "I wasn't expecting the food to be this good, but honestly it blew me away. The butter chicken is creamy, flavorful, and perfectly balanced — you can taste the freshness in every bite. The staff were incredibly warm, and the service was quick even during peak hours. This place has become my go-to spot for comfort food. Highly recommended!",
     author: "John D, 27",
-    avatar: "/path-to-avatar.jpg",
+    avatar: avatar,
     rating: 5,
   },
   {
     id: 3,
     content: "The curries here have such depth of flavor — you can tell the chefs know what they’re doing.",
     author: "John D, 27",
-    avatar: "/path-to-avatar.jpg",
+    avatar: avatar,
     rating: 5,
   },
 ];

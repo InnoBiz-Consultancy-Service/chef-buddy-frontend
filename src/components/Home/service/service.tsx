@@ -13,7 +13,7 @@ const services = [
   {
     title: "Private Home Dining",
     description: "A bespoke, multi-course Indian dining experience prepared fresh in your kitchen.",
-    icon: privateHome, // Bracket bad dewa hoyeche
+    icon: privateHome,
   },
   {
     title: "Event Catering",
@@ -38,6 +38,15 @@ const services = [
 ];
 
 const Services = () => {
+  // scroll handler function
+  const scrollToContact = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const element = document.getElementById('book-chef');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="py-16 lg:py-12 bg-[#FFFAF6] w-full px-4 md:px-8 lg:px-12">
       <div className="text-center mb-12">
@@ -52,7 +61,7 @@ const Services = () => {
         {services.map((service, index) => (
           <div 
             key={index} 
-            className="bg-white p-6 md:p-8 rounded-[16px] border border-gray-100 flex flex-col items-center text-center w-full shadow-sm hover:shadow-md transition-all"
+            className="bg-white p-6 md:p-8 rounded-[16px] border border-gray-100 flex flex-col items-center text-center w-full shadow-sm hover:shadow-md transition-all group"
           >
             {/* Service Icon Container */}
             <div className="flex justify-center items-center mb-4 h-[70px]">
@@ -62,7 +71,6 @@ const Services = () => {
                 width={60} 
                 height={60}
                 className="object-contain"
-                // Icon color filter (Orange tint)
                 style={{
                   filter: 'invert(58%) sepia(93%) saturate(1352%) hue-rotate(359deg) brightness(102%) contrast(107%)'
                 }}
@@ -77,8 +85,9 @@ const Services = () => {
               {service.description}
             </p>
 
-            {/* Button */}
+            {/* Contact Us Button - Connected to book-chef ID */}
             <button 
+              onClick={scrollToContact}
               className="font-bold transition-all hover:scale-105 active:scale-95 bg-[#DF7800] text-white py-2 px-6 rounded-full text-[15px] w-full max-w-[180px] cursor-pointer"
             >
               Contact Us

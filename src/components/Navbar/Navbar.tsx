@@ -11,24 +11,34 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', href: '/' },
-    { name: 'About', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Menu', href: '#menu' },
-    { name: 'Gallery', href: '#gallery' },
-    { name: 'Blog', href: '#blog' },
+    { name: 'About', href: '/about' },
+    { name: 'Services', href: '/services' },
+    { name: 'Menu', href: '/menu' },
+    { name: 'Gallery', href: '/gallery' },
+    { name: 'Blog', href: '/blog' },
   ];
+
+  // স্মুথ স্ক্রল হ্যান্ডলার
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault();
+    const href = e.currentTarget.getAttribute('href');
+    if (href?.startsWith('#')) {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        setIsOpen(false); // মোবাইল মেনু খোলা থাকলে বন্ধ করে দেবে
+      }
+    }
+  };
 
   return (
     <nav 
       className="absolute top-0 left-0 w-full z-50 bg-transparent transition-all duration-300"
       style={{
-        // Figma Drop Shadow: X=0, Y=32, Blur=40, Spread=0, Color=#000000 @ 10%
         filter: 'drop-shadow(0px 32px 40px rgba(0, 0, 0, 0.10))'
       }}
     >
-      {/* Width set to Figma 1920px (max-width) */}
       <div className="max-w-[1920px] mx-auto px-6 lg:px-[120px]">
-        {/* Height set to Figma 101px & Gap: 8px */}
         <div className="flex items-center justify-between h-[101px] gap-2">
           
           {/* Logo Section */}
@@ -44,7 +54,7 @@ const Navbar = () => {
              </div>
           </Link>
 
-          {/* Desktop Menu - Text visibility fixed with contrast shadow */}
+          {/* Desktop Menu */}
           <div className="hidden lg:block">
             <div className="flex items-center space-x-10">
               {navLinks.map((link) => (
@@ -59,11 +69,13 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Book Now Button */}
+          {/* Desktop Book Now Button */}
           <div className="hidden lg:block">
-            <button className="bg-[#F4C48E] text-[#2D2D2D] px-10 py-4 rounded-full font-bold text-[18px] hover:scale-105 transition-all border-black">
-              Book Now
-            </button>
+            <a href="#book-chef" onClick={handleScroll}>
+              <button className="bg-[#F4C48E] text-[#2D2D2D] px-10 py-4 rounded-full font-bold text-[18px] hover:scale-105 transition-all cursor-pointer border-none">
+                Book Now
+              </button>
+            </a>
           </div>
 
           {/* Mobile Hamburger Button */}
@@ -88,9 +100,13 @@ const Navbar = () => {
                       {link.name}
                    </Link>
                 ))}
-                <button className="bg-[#FFDBB1] text-black py-5 font-extrabold text-xl border-black cursor-pointer">
-                   Book Now
-                </button>
+                
+                {/* Mobile Book Now Button */}
+                <a href="#book-chef" onClick={handleScroll}>
+                  <button className="w-full bg-[#FFDBB1] text-black py-5 font-extrabold text-xl rounded-xl cursor-pointer">
+                     Book Now
+                  </button>
+                </a>
              </div>
           </div>
       </div>
