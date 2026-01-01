@@ -6,9 +6,17 @@ import HeroBg from "../../../assets/images/Banner1.jpg";
 import fresh from "../../../assets/images/fresh.png";
 import menu from "../../../assets/images/personalizedMenu.png";
 import makeHome from "../../../assets/images/MakeHome.png";
+
 const Banner = () => {
+  const scrollToContact = (e: React.MouseEvent) => {
+      e.preventDefault();
+      const element = document.getElementById('book-chef');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
   return (
-    <section className="relative w-full overflow-hidden lg:h-[1018px] h-screen lg:mt-[-10px]">
+    <section className="relative w-full overflow-hidden min-h-screen lg:h-[1018px]">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 w-full h-full">
         <Image
@@ -18,90 +26,72 @@ const Banner = () => {
           className="object-cover"
           priority
         />
-        {/* Figma Linear Gradient Overlay (#000000 at 0%) */}
         <div 
-          className="absolute inset-0 w-full h-full" 
+          className="absolute inset-0 w-full h-full z-[1]" 
           style={{
-            background: 'linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.8) 100%)'
+            background: 'linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.9) 100%)'
           }}
         />
       </div>
 
       {/* Hero Content Section */}
-      <div className="relative z-10 max-w-[1920px] mx-auto h-full flex flex-col items-center justify-center px-6 text-center mt-24 lg:mt-0">
+      <div className="relative z-10 max-w-[1920px] mx-auto h-full min-h-screen flex flex-col items-center justify-center px-6 text-center">
         
-        {/* Main Title: Figma 72px equivalent */}
-        <div className='w-[365px] height-[126px] top-[194px] left-[38px]'>
+        {/* Main Content */}
+        <div className="flex flex-col items-center mb-20 lg:mb-0">
+          <h1 className="text-white text-[32px] md:text-[54px] lg:text-[72px] font-extrabold leading-[1.2] lg:leading-[1.1] max-w-[950px]">
+            Private Chef Services for <span className='block lg:inline text-[#F7931E]'>Elevated</span> At-Home Dining
+          </h1>
 
+          <p className="text-gray-200 text-[16px] md:text-[18px] lg:text-[20px] mt-6 max-w-[800px] leading-relaxed">
+            Enjoy the rich aromas and vibrant spices of India—crafted fresh in your home. 
+            From intimate dinners to family celebrations and corporate gatherings.
+          </p>
+
+          <button 
+          onClick={scrollToContact}
+            className="mt-10 font-bold transition-all hover:scale-105 active:scale-95 flex items-center justify-center cursor-pointer bg-[#F7931E] text-black rounded-full"
+            style={{
+              width: '274px',
+              height: '59px',
+              fontSize: '18px',
+            }}
+          >
+            Book a Consultation
+          </button>
         </div>
-   <h1 className="text-white py-6 lg:py-0 text-[32px] md:text-[54px] lg:text-[72px] font-extrabold leading-[1.1] max-w-[950px]">
-  Private Chef Services for <span className='block lg:inline'>Elevated</span> <span >
-    At-Home Dining
-  </span>
-</h1>
 
-{/* Subtitle */}
-<p className="text-gray-200 text-[16px] md:text-[18px] lg:text-[20px] mt-6 max-w-[800px] leading-relaxed">
-  Enjoy the rich aromas and vibrant spices of India—crafted fresh in your home. 
-  From intimate dinners to family celebrations and corporate gatherings, 
-  experience fine Indian cuisine with your own private chef.
-</p>
+        {/* Bottom Features Section (CommonBanner style follow kore) */}
+        <div className="absolute bottom-0 left-0 right-0 w-full z-20">
+          <div className="bg-gradient-to-t from-black via-black/80 to-transparent pt-24 pb-8">
+            <div className="max-w-7xl mx-auto flex flex-wrap justify-around items-center px-4 lg:px-8">
+              
+              {/* Feature 1 */}
+              <div className="flex flex-col items-center text-center mx-4 my-4 min-w-[140px] group">
+                <div className="w-12 h-12 mb-3 flex items-center justify-center rounded-full bg-[#F7931E] shadow-lg transition-transform group-hover:scale-110">
+                  <Image src={fresh} alt="Fresh Ingredients" width={24} height={24} />
+                </div>
+                <p className="text-white font-medium text-sm md:text-base">Fresh Ingredients</p>
+              </div>
 
-{/* Call to Action Button */}
-<button 
-  // mt-20 for mobile
-  className="mt-20 md:mt-10 font-bold transition-all hover:scale-105 active:scale-95 flex items-center justify-center cursor-pointer"
-  style={{
-    backgroundColor: '#F7931E',
-    color: '#000000',
-    width: '274px',
-    height: '59px',
-    borderRadius: '53px',
-    fontSize: '18px',
-    padding: '10px 34px'
-  }}
->
-  <span className="font-nunito text-[18px] font-bold leading-none tracking-normal">
-    Book a Consultation
-  </span>
-</button>
+              {/* Feature 2 */}
+              <div className="flex flex-col items-center text-center mx-4 my-4 min-w-[140px] group">
+                <div className="w-12 h-12 mb-3 flex items-center justify-center rounded-full bg-[#F7931E] shadow-lg transition-transform group-hover:scale-110">
+                  <Image src={menu} alt="Personalized Menus" width={24} height={24} />
+                </div>
+                <p className="text-white font-medium text-sm md:text-base">Personalized Menus</p>
+              </div>
 
-        {/* Bottom Features: Responsive Icons */}
-        <div className="lg:absolute lg:bottom-16 mt-0 md:mt-16 lg:mt-0 w-full max-w-[1200px] flex flex-wrap justify-center lg:justify-between items-center gap-8 lg:gap-0 mt-12">
-          
-         
-<div className="flex flex-col items-center text-center">
-    <div className="w-14 h-14 mb-3 flex items-center justify-center rounded-full bg-[#F7931E]">
-      <Image src={fresh} alt="Fresh Ingredients" width={26} height={26} />
-    </div>
-    <span className="text-white font-semibold text-[14px] lg:text-[18px]">
-      Fresh Ingredients
-    </span>
-  </div>
-         
-          <div className="flex flex-col items-center text-center">
-    <div className="w-14 h-14 mb-3 flex items-center justify-center rounded-full bg-[#F7931E] mt-48  md:mt-0">
-      <Image src={menu} alt="Personalized Menus" width={26} height={26} />
-    </div>
-    <span className="text-white font-semibold text-[14px] lg:text-[18px]">
-      Personalized Menus
-    </span>
-  </div>
-  
+              {/* Feature 3 */}
+              <div className="flex flex-col items-center text-center mx-4 my-4 min-w-[140px] group">
+                <div className="w-12 h-12 mb-3 flex items-center justify-center rounded-full bg-[#F7931E] shadow-lg transition-transform group-hover:scale-110">
+                  <Image src={makeHome} alt="Chef at Home" width={24} height={24} />
+                </div>
+                <p className="text-white font-medium text-sm md:text-base">Chef-Prepared at Home</p>
+              </div>
 
-       
-          
-
-          {/* Item 3 */}
-  <div className="flex flex-col items-center text-center">
-    <div className="w-14 h-14 mb-3 flex items-center justify-center rounded-full bg-[#F7931E]">
-      <Image src={makeHome} alt="Chef at Home" width={26} height={26} />
-    </div>
-    <span className="text-white font-semibold text-[14px] lg:text-[18px]">
-      Chef-Prepared at Home
-    </span>
-  </div>
-
+            </div>
+          </div>
         </div>
       </div>
     </section>
